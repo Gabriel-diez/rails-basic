@@ -1,10 +1,1 @@
-<%= form_for @user do |f| %>
-    Prénom <%= f.text_field :firstname %>
-    <%= @user.errors[:firstname] if @user.errors[:firstname].present? %>
-    <br />
-    Nom <%= f.text_field :lastname %>
-    <%= @user.errors[:lastname] if @user.errors[:lastname].present? %>
-    <br />
-    Age <%= f.number_field :age %><br />
-    <%= f.submit %>
-<% end %>
+<%= render "form" %>
