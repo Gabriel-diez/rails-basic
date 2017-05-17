@@ -12,6 +12,9 @@
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
+
+        <%= "Bienvenue #{current_user.firstname} #{current_user.lastname}" if user_signed_in? %>
+
         <button type="button" class="btn btn-default navbar-btn">
           <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
         </button>
