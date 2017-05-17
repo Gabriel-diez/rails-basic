@@ -1,3 +1,10 @@
-<% @users.each do |user| %>
-    <%= user.inspect %>
-<% end %>
+<ul>
+  <% @users.each do |user| %>
+      <li>
+        <%= link_to "#{user.firstname} #{user.lastname}", user %>
+        <%= link_to "Edit", [:edit, user]  %>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to "Nouvel Utilisateur", [:new, :user] %>
