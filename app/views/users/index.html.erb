@@ -9,3 +9,8 @@
 </ul>
 
 <%= link_to "Nouvel Utilisateur", [:new, :user] %>
+
+<%# Can use both : %>
+<%# link_to "Inscription", [:new, :user_registration] %>
+
+<%= link_to "Inscription", new_user_registration_path %>
