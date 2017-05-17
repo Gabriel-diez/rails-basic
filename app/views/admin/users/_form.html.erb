@@ -6,5 +6,6 @@
     <%= @user.errors[:lastname] if @user.errors[:lastname].present? %>
     <br />
     Age <%= f.number_field :age %><br />
+    Avatar <%= f.file_field :avatar %> <br />
     <%= f.submit %>
 <% end %>

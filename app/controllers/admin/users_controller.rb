@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new
-    @user.update_attributes params[:user].permit(:firstname, :lastname, :age)
+    @user.update_attributes params[:user].permit(:firstname, :lastname, :age, :avatar)
 
     if @user.save
       redirect_to @user
@@ -30,7 +30,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes params[:user].permit(:firstname, :lastname, :age)
+    @user.update_attributes params[:user].permit(:firstname, :lastname, :age, :avatar)
 
     if @user.save
       redirect_to @user
