@@ -9,14 +9,28 @@
   </head>
 
   <body>
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <button type="button" class="btn btn-default navbar-btn">
+          <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
+        </button>
+
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
     <% end %>
 
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-  <% end %>
+      <%= yield %>
 
-    <%= yield %>
+    </div>
   </body>
 </html>

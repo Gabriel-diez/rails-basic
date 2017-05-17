@@ -1,0 +1,16 @@
+<ul>
+  <% @users.each do |user| %>
+      <li>
+        <%= link_to "#{user.firstname} #{user.lastname}", admin:user %>
+        <%= link_to "Edit", [:edit, :admin,user]  %>
+        <%= link_to "Supprimer", admin:user, method: :delete %>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to "Nouvel Utilisateur", [:new, :admin,:user] %>
+
+<%# Can use both : %>
+<%# link_to "Inscription", [:new, :user_registration] %>
+
+<%= link_to "Inscription", new_user_registration_path %>
