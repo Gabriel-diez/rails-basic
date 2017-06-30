@@ -1,40 +1,48 @@
-<%= form_for(post) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "erreur") %> </h2>
+<div class="col-md-8 col-md-offset-2">
+  <div class="form-area">
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_for(post) do |f| %>
+        <h3 class="text-center">Mon Post</h3>
+        <hr>
+
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "erreur") %> </h2>
+
+          <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-    <div class="field">
-      <%=  f.label :titre %>
-      <%=  f.text_field :title, class: 'form-control' %>
-    </div>
+        <div class="field">
+          <%=  f.label :titre %>
+          <%=  f.text_field :title, class: 'form-control' %>
+        </div>
 
-    <div class="field">
-      <hr>
-      <% if @post.picture? %>
-          <%= image_tag @post.picture.url(:thumb_post) %>
-      <% else %>
-          <%=  f.label :Image %>
-      <% end %>
-      <br>
-      <br>
-      <%=  f.file_field :picture %>
-      <hr>
-    </div>
+        <div class="field">
+          <hr>
+          <% if @post.picture? %>
+              <%= image_tag @post.picture.url(:thumb_post) %>
+          <% else %>
+              <%=  f.label :Image %>
+          <% end %>
+          <br>
+          <br>
+          <%=  f.file_field :picture %>
+          <hr>
+        </div>
 
-    <div class="field">
-      <%=  f.label :Contenu %>
-      <%=  f.text_area :body, class: 'form-control', style: 'min-height: 200px' %>
-    </div>
+        <div class="field">
+          <%=  f.label :Contenu %>
+          <%=  f.text_area :body, class: 'form-control', style: 'min-height: 200px' %>
+        </div>
 
-    <div class="actions pull-right">
-      <button type="submit" class="btn btn-info send-button">Envoyer</button>
-    </div>
-<% end %>
+        <div class="actions pull-right">
+          <button type="submit" class="btn btn-info send-button">Envoyer</button>
+        </div>
+    <% end %>
+  </div>
+</div>
