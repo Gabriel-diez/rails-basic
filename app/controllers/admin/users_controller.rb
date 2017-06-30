@@ -33,7 +33,7 @@ class Admin::UsersController < ApplicationController
     @user.update_attributes params[:user].permit(:firstname, :lastname, :age, :avatar)
 
     if @user.save
-      redirect_to @user
+      redirect_to [:admin,@user]
     else
       render "edit"
     end
@@ -43,7 +43,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to :users
+    redirect_to [:admin,:users]
   end
 
 end

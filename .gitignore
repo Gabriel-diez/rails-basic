@@ -126,4 +126,6 @@ bower.json
 .DS_Store
 
 .idea/
+
+public/uploads
 # End of https://www.gitignore.io/api/rails,intellij
