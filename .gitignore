@@ -123,4 +123,7 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
+.DS_Store
+
+.idea/
 # End of https://www.gitignore.io/api/rails,intellij
