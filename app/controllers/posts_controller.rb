@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: 'Post crée avec succès.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: 'Post édité avec succès.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-      redirect_to posts_url, notice: 'Post was successfully destroyed.'
+      redirect_to posts_url, notice: 'Post supprimé avec succès'
   end
 
   private
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
 
       if current_user != @post.user
-        redirect_to @post, notice: "You cannot edit this post"
+        redirect_to @post, notice: "Vous ne pouvez pas editer ou supprimer ce post !"
       end
     end
 end
