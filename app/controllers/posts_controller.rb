@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :own_post, only: [:edit, :update, :destroy]
 
   # GET /posts
   def index
@@ -32,11 +33,11 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-      if @post.update(post_params)
-        redirect_to @post, notice: 'Post was successfully updated.'
-      else
-        render :edit
-      end
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /posts/1
@@ -54,5 +55,13 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, :picture)
+    end
+
+    def own_post
+      @post = Post.find(params[:id])
+
+      if current_user != @post.user
+        redirect_to @post, notice: "You cannot edit this post"
+      end
     end
 end
