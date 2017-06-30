@@ -1,5 +1,9 @@
 <ul>
-  <li> <%= image_tag @user.avatar.thumb, alt: "user_avatar" %> </li>
+  <% if @user.avatar? %>
+    <li>
+      <%= image_tag @user.avatar.thumb, alt: "user_avatar" %>
+    </li>
+  <% end %>
   <li> <%= "Prénom : #{@user.firstname}" %> </li>
   <li> <%= "Nom : #{@user.lastname}" %> </li>
   <li> <%= "Age : #{@user.age} ans" %> </li>
