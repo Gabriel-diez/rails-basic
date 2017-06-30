@@ -1,0 +1,38 @@
+<% @posts.each do |post| %>
+    <div class="row">
+      <%= image_tag post.picture.thumb_post, alt: "post picture full-width", class: "col-md-2" %>
+
+      <div class="col-md-10">
+        <div class="row">
+          <h2 class="col-md-10">
+            <%= link_to post.title, post %>
+          </h2>
+          <% if post.user == current_user %>
+              <p class="col-md-2 text-right" id="update_icon">
+                <%= link_to edit_post_path(post) do  %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+
+                <%= link_to post, method: :delete, data: { confirm: 'Voulez vous vraiment supprimer ce post ?' } do  %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+              </p>
+          <% end %>
+        </div>
+        <p class="lead">
+          Écrit par
+          <%= link_to "#{post.user.firstname} #{post.user.lastname}", [:admin,post.user] %>
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-time"></span>
+          <%= "Posté le #{post.created_at.strftime('%d/%m/%y')}" %>
+        </p>
+        <hr>
+        <p>
+          <%= truncate(post.body, length: 250) { link_to " Lire la suite", post } %>
+        </p>
+      </div>
+    </div>
+    <hr>
+
+<% end %>

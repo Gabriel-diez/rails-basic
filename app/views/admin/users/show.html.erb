@@ -9,4 +9,12 @@
   <li> <%= "Age : #{@user.age} ans" %> </li>
 </ul>
 
-<%= link_to "Retour", [:admin,:users] %>
+<div class="col-md-12">
+
+  <h1 class="page-header">
+    <%= "Article de #{@user.firstname} #{@user.lastname}" %>
+  </h1>
+
+  <%= render "layouts/renderPosts" %>
+
+</div>
