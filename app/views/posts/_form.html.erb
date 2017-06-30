@@ -1,7 +1,7 @@
 <%= form_for(post) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(post.errors.count, "erreur") %> </h2>
 
       <ul>
       <% post.errors.full_messages.each do |message| %>
@@ -11,22 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
     <div class="field">
-      <%= f.label :picture %>
-      <%= f.file_field :picture %>
+      <%=  f.label :titre %>
+      <%=  f.text_field :title, class: 'form-control' %>
     </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <hr>
+      <% if @post.picture? %>
+          <%= image_tag @post.picture.url(:thumb_post) %>
+      <% else %>
+          <%=  f.label :Image %>
+      <% end %>
+      <br>
+      <br>
+      <%=  f.file_field :picture %>
+      <hr>
+    </div>
+
+    <div class="field">
+      <%=  f.label :Contenu %>
+      <%=  f.text_area :body, class: 'form-control', style: 'min-height: 100px' %>
+    </div>
+
+    <div class="actions pull-right">
+      <button type="submit" class="btn btn-info send-button">Envoyer</button>
+    </div>
 <% end %>
