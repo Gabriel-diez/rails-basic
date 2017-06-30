@@ -1,5 +1,5 @@
 <ul>
-  <li> <%= image_tag @user.avatar.thumb %> </li>
+  <li> <%= image_tag @user.avatar.thumb, alt: "user_avatar" %> </li>
   <li> <%= "Prénom : #{@user.firstname}" %> </li>
   <li> <%= "Nom : #{@user.lastname}" %> </li>
   <li> <%= "Age : #{@user.age} ans" %> </li>
