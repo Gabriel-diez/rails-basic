@@ -31,6 +31,9 @@
               <%= link_to 'Nouveau Post', new_post_path if user_signed_in? %>
             </li>
             <li>
+              <%= link_to 'Editer mon Profil', [:edit, :admin,current_user] if user_signed_in? %>
+            </li>
+            <li>
               <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
             </li>
           </ul>
@@ -44,10 +47,6 @@
 
       <% if notice.present? %>
         <p class="notice"><%= notice %></p>
-      <% end %>
-
-      <% if alert.present? %>
-        <p class="alert"><%= alert %></p>
       <% end %>
 
       <div class="row">

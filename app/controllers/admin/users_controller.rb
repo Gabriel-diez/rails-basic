@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-
+  before_action :own_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -46,5 +46,14 @@ class Admin::UsersController < ApplicationController
 
     redirect_to [:admin,:users]
   end
+
+  private
+    def own_user
+      @user = User.find(params[:id])
+
+      if current_user != @user
+        redirect_to [:admin, @user], notice: "Vous ne pouvez pas editer cet utilisateur !"
+      end
+    end
 
 end
