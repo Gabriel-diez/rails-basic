@@ -1,18 +1,34 @@
-<ul>
-  <% if @user.avatar? %>
-    <li>
-      <%= image_tag @user.avatar.thumb, alt: "user_avatar" %>
-    </li>
-  <% end %>
-  <li> <%= "Prénom : #{@user.firstname}" %> </li>
-  <li> <%= "Nom : #{@user.lastname}" %> </li>
-  <li> <%= "Age : #{@user.age} ans" %> </li>
-</ul>
-
 <div class="col-md-12">
 
   <h1 class="page-header">
-    <%= "Article de #{@user.firstname} #{@user.lastname}" %>
+    <%= "Profil de #{@user.firstname} #{@user.lastname}" %>
+  </h1>
+
+  <div class="container-fluid well span6">
+    <div class="row-fluid">
+      <% if @user.avatar? %>
+          <div class="col-md-2" >
+            <%= image_tag @user.avatar.thumb, alt: "user_avatar", class: "img-circle" %>
+          </div>
+      <% end %>
+
+      <div class="col-md-8">
+        <h3>
+          <%= "#{@user.firstname} #{@user.lastname}" %>
+        </h3>
+        <h6>
+          <%= "Email : #{@user.email}" %>
+        </h6>
+        <h6>
+          <%= "Age : #{@user.age}" %>
+        </h6>
+      </div>
+    </div>
+  </div>
+
+
+  <h1 class="page-header">
+    <%= "Ses posts" %>
   </h1>
 
   <%= render "layouts/renderPosts" %>
