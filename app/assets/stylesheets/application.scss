@@ -21,3 +21,16 @@ body {
 #update_icon, .send-button {
   margin-top: 20px;
 }
+
+.form-area
+{
+  background-color: #FAFAFA;
+  padding: 10px 40px 60px;
+  margin: 10px 0px 60px;
+  border: 1px solid GREY;
+
+  .field {
+    padding-bottom: 5px;
+  }
+  
+}
