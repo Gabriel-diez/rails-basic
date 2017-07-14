@@ -7,9 +7,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
   end
-  resources :posts, only: [:index, :show] do
-    resources :comments, only: [:create, :destroy]
-  end
+  resources :posts, only: [:index, :show]
 
   namespace :admin do
     resources :users
