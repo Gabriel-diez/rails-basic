@@ -25,12 +25,15 @@ body {
 .form-area
 {
   background-color: #FAFAFA;
-  padding: 10px 40px 60px;
+  padding: 20px 40px 60px;
   margin: 10px 0px 60px;
   border: 1px solid GREY;
 
   .field {
     padding-bottom: 5px;
+    label {
+      padding: 5px 0px 2px 0px;
+    }
   }
   
 }
