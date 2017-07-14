@@ -8,6 +8,35 @@
       <%= devise_error_messages! %>
 
       <div class="field">
+        <%=  f.label :Prénom %>
+        <%=  f.text_field :firstname, class: 'form-control' %>
+        <%= @user.errors[:firstname] if @user.errors[:firstname].present? %>
+      </div>
+
+      <div class="field">
+        <%=  f.label :Nom %>
+        <%=  f.text_field :lastname, class: 'form-control' %>
+        <%= @user.errors[:lastname] if @user.errors[:lastname].present? %>
+      </div>
+
+      <div class="field">
+        <%=  f.label :Age %>
+        <%=  f.text_field :age, class: 'form-control' %>
+        <%= @user.errors[:age] if @user.errors[:age].present? %>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= @user.errors[:avatar] if @user.errors[:avatar].present? %>
+        <% if @user.avatar? %>
+            <%= image_tag @user.avatar.url(:thumb) %>
+        <% else %>
+            <%=  f.label :Avatar %>
+        <% end %>
+        <%=  f.file_field :picture %>
+      </div>
+
+      <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, class: 'form-control', autofocus: true %>
       </div>
