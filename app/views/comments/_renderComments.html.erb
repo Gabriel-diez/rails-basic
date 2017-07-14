@@ -1,0 +1,14 @@
+<% @post.comments.each do |comment| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= comment.user %>
+        </h3>
+        <%= comment.created_at.strftime('Le %y/%m/%d') %>
+        <%= link_to "Supprimer", post_comment_path(post_id: comment.post.id, id: comment.id), method: :delete, class: 'pull-right', remote: true if comment.user == current_user %>
+      </div>
+      <div class="panel-body">
+        <%= comment.body %>
+      </div>
+    </div>
+<% end %>

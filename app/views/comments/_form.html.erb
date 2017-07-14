@@ -1,0 +1,8 @@
+<%= form_for [@post, Comment.new], remote: true do |f| %>
+    <%= f.text_area :body, class: 'form-control', placeholder: 'Commentaire' %>
+    <br>
+    <div class="actions pull-right">
+      <% link_to %>
+      <button type="submit" class="btn btn-info send-button">Créer le commentaire</button>
+    </div>
+<% end %>
